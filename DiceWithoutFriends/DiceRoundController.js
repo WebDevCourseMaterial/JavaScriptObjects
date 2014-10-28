@@ -1,7 +1,7 @@
 
-rh.dwf.DiceRoundController = function($container) {
+rh.dwf.DiceRoundController = function(roundCompleteHandler) {
 	this.diceRound = new rh.dwf.DiceRound();
-	this.$container = $container;
+	// TODO: Save the roundCompleteHandler into an instance variable to call later.
 	this.$score = $("#round-score");
 	this.$offTableButtons = $(".dice-row.off-table button");
 	this.$onTableButtons = $(".dice-row.on-table button");
@@ -10,6 +10,7 @@ rh.dwf.DiceRoundController = function($container) {
 	this.enableButtons();
 	this.updateAll();
 };
+
 
 rh.dwf.DiceRoundController.prototype.enableButtons = function() {
 	diceRoundController = this;
@@ -27,16 +28,10 @@ rh.dwf.DiceRoundController.prototype.enableButtons = function() {
 		diceRoundController.updateScore();
 	});
 	$("#btn-roll-again").click(function() {
-		hasActiveDice = diceRoundController.diceRound.roll();
-		diceRoundController.updateAll();
-		if (!hasActiveDice) {
-			// TODO: Animate losing all your points
-		}
+	  // TODO: Implement
 	});
 	$("#btn-stop").click(function() {
-	  diceRoundController.$container.trigger("rh.dwf.roundcomplete", diceRoundController.diceRound.getRoundScore());
-    diceRoundController.diceRound = new rh.dwf.DiceRound();
-    diceRoundController.updateAll();
+    // TODO: Implement
 	});
 };
 
@@ -79,6 +74,7 @@ rh.dwf.DiceRoundController.prototype.updateScore = function() {
 	}
 };
 
+
 rh.dwf.DiceRoundController.prototype.updateDieButtonClass = function(dieButton, value, disabled) {
   dieButton.className = "btn btn-lg";
   $dieButton = $(dieButton);
@@ -92,6 +88,7 @@ rh.dwf.DiceRoundController.prototype.updateDieButtonClass = function(dieButton, 
     $dieButton.addClass("die-" + value);
   }
 };
+
 
 rh.dwf.DiceRoundController.prototype.updateDie = function (die) {
 	switch (die.state) {

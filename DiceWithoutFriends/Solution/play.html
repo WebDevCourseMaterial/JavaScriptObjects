@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Dice without Friends</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="play.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="dwf_play_main.js"></script>
+<script src="Die.js"></script>
+<script src="DiceRound.js"></script>
+<script src="DiceRoundController.js"></script>
+<script src="DiceGameController.js"></script>
+<link rel="stylesheet" href="play.css">
+</head>
+<body>
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<div class="container">
+  <div class="navbar-header">
+	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+	  <span class="sr-only">Toggle navigation</span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	</button>
+	<a href="/" class="navbar-brand">Dice without Friends</a>
+  </div>
+  <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	<ul class="nav navbar-nav navbar-right">
+		<button id="new-game-button" type="button" class="btn btn-default navbar-btn btn-sm btn-primary">New Game</button>
+	</ul>
+  </nav>
+</div>
+</header>
+<div class="container">
+  <div class="game-stats">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>
+          <span class="title">Total Score</span><br><span id="score">0</span>
+        </h2>
+      </div>
+      <div class="col-xs-6">
+        <h2>
+          <span class="title">Round</span><br><span id="round">1</span>
+        </h2>
+      </div>
+      <div class="col-xs-8 col-xs-offset-2">
+        <p id="fastest-finish-message"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container game-table">
+  <div class="row">
+    <div class="col-xs-12 score-label">
+      Round Score = <span id="round-score">0</span>
+    </div>
+    <div class="col-xs-12 off-table dice-row">
+      <button id="btn-off-table-0" type="button" class="btn btn-lg invisible"></button>
+      <button id="btn-off-table-1" type="button" class="btn btn-lg invisible"></button>
+      <button id="btn-off-table-2" type="button" class="btn btn-lg invisible"></button>
+      <button id="btn-off-table-3" type="button" class="btn btn-lg invisible"></button>
+      <button id="btn-off-table-4" type="button" class="btn btn-lg invisible"></button>
+      <button id="btn-off-table-5" type="button" class="btn btn-lg invisible"></button>
+    </div>
+    <div class="col-xs-12 on-table dice-row">
+      <div class="dice-container">
+        <button id="btn-on-table-0" type="button" class="btn btn-lg"></button>
+        <button id="btn-on-table-1" type="button" class="btn btn-lg"></button>
+        <button id="btn-on-table-2" type="button" class="btn btn-lg"></button>
+        <button id="btn-on-table-3" type="button" class="btn btn-lg"></button>
+        <button id="btn-on-table-4" type="button" class="btn btn-lg"></button>
+        <button id="btn-on-table-5" type="button" class="btn btn-lg"></button>
+      </div>
+    </div>
+    <div class="col-xs-12">
+        <button id="btn-roll-again" type="button" class="btn btn-lg btn-danger">Roll Again</button>
+        <button id="btn-stop" type="submit" class="btn btn-lg btn-success">Stop</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 
-rh.dwf.DiceRoundController = function($container) {
+rh.dwf.DiceRoundController = function(roundCompleteHandler) {
 	this.diceRound = new rh.dwf.DiceRound();
-	this.$container = $container;
+	this.roundCompleteHandler = roundCompleteHandler;
 	this.$score = $("#round-score");
 	this.$offTableButtons = $(".dice-row.off-table button");
 	this.$onTableButtons = $(".dice-row.on-table button");
@@ -34,9 +34,9 @@ rh.dwf.DiceRoundController.prototype.enableButtons = function() {
 		}
 	});
 	$("#btn-stop").click(function() {
-	  diceRoundController.$container.trigger("rh.dwf.roundcomplete", diceRoundController.diceRound.getRoundScore());
-    diceRoundController.diceRound = new rh.dwf.DiceRound();
-    diceRoundController.updateAll();
+		diceRoundController.roundCompleteHandler(diceRoundController.diceRound.getRoundScore());
+		diceRoundController.diceRound = new rh.dwf.DiceRound();
+		diceRoundController.updateAll();
 	});
 };
 

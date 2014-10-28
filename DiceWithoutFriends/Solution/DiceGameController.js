@@ -3,15 +3,11 @@
 rh.dwf.DiceGameController = function($container) {
   this.roundsComplete = 0;
   this.totalScore = 0;
-  this.$roundContainer = $(".game-table");
-  new rh.dwf.DiceRoundController(this.$roundContainer);
   
-  // Setup a listener for a custom event.
   var diceGameController = this;
-  this.$roundContainer.on("rh.dwf.roundcomplete", function(event, customData) {
-    diceGameController.handleRoundComplete(customData);
+  new rh.dwf.DiceRoundController(function(roundScore) {
+    diceGameController.handleRoundComplete(roundScore);
   });
-  
   
   if (localStorage.fastestFinish) {
     $("#fastest-finish-message").text("Fastest finish = " + localStorage.fastestFinish + " rounds");
@@ -24,8 +20,8 @@ rh.dwf.DiceGameController.prototype.handleRoundComplete = function(roundScore) {
   this.totalScore += roundScore;
   $("#score").text(this.totalScore);
   
-  if (this.totalScore >= 2000) {
-    this.$roundContainer.html("<h1>You finished in " + this.roundsComplete + " rounds</h1>");
+  if (this.totalScore >= 10000) {
+    $(".game-table").html("<h1>You finished in " + this.roundsComplete + " rounds</h1>");
     if (!localStorage.fastestFinish ||  this.roundsComplete < localStorage.fastestFinish) {
       localStorage.fastestFinish = this.roundsComplete;
     }

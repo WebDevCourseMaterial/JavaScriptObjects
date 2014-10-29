@@ -13,7 +13,7 @@ rh.dwf.DiceRoundController = function(roundCompleteHandler) {
 
 
 rh.dwf.DiceRoundController.prototype.enableButtons = function() {
-	diceRoundController = this;
+	var diceRoundController = this;
 	$(".dice-row button").click(function() {
 		idComponents = this.id.split("-");
 		die = diceRoundController.diceRound.pressedButtonAtLocation(idComponents[3], idComponents[1] == "on");
@@ -28,10 +28,25 @@ rh.dwf.DiceRoundController.prototype.enableButtons = function() {
 		diceRoundController.updateScore();
 	});
 	$("#btn-roll-again").click(function() {
-	  // TODO: Implement
-	});
-	$("#btn-stop").click(function() {
-    // TODO: Implement
+    // TODO: Call the function roll on the rh.dwf.DiceRoundController instance variable diceRound
+    
+    
+    // TODO: Call the function updateAll on the rh.dwf.DiceRoundController instance
+    
+    
+  });
+  
+  $("#btn-stop").click(function() {
+    // TODO: Call the roundCompleteHandler that was passed into the constructor.
+    //       Set the parameter by calling getRoundScore on the diceRound instance variable.
+    
+    
+    // TODO: Create a new DiceRound and set it to the diceRound instance variable.
+    
+    
+    // TODO: Call updateAll on the rh.dwf.DiceRoundController instance
+    
+
 	});
 };
 

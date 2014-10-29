@@ -12,7 +12,7 @@ rh.dwf.DiceRoundController = function(roundCompleteHandler) {
 };
 
 rh.dwf.DiceRoundController.prototype.enableButtons = function() {
-	diceRoundController = this;
+	var diceRoundController = this;
 	$(".dice-row button").click(function() {
 		idComponents = this.id.split("-");
 		die = diceRoundController.diceRound.pressedButtonAtLocation(idComponents[3], idComponents[1] == "on");

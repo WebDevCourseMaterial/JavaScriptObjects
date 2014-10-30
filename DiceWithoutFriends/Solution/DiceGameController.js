@@ -1,6 +1,6 @@
 
 
-rh.dwf.DiceGameController = function($container) {
+rh.dwf.DiceGameController = function() {
   this.roundsComplete = 0;
   this.totalScore = 0;
   
